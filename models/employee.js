@@ -3,7 +3,6 @@
 const { gql } = require('graphql-tag')
 const typeDefs = gql`
   type Employee {
-    id: ID!
     name: String!
     job: String!
     department: String!
@@ -15,6 +14,21 @@ const typeDefs = gql`
     getEmployee(id: ID!): Employee
     listEmployees: [Employee]
   }
+
+  input EmployeeInput {
+    name: String!
+    job: String!
+    department: String!
+    salary: Float!
+    hire_date: String!
+  }
+
+  type Mutation {
+    createEmployee(input: EmployeeInput!): Employee
+    updateEmployee(id: ID!, input: EmployeeInput!): Employee
+    deleteEmployee(id: ID!): Boolean  
+}
+  
 `;
 
 module.exports = typeDefs;
