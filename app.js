@@ -1,4 +1,4 @@
-
+require('dotenv').config(); // Load environmental variables from .env file
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
@@ -14,9 +14,7 @@ const client = require("./DatabaseClient/Client")
 
 async function StartServer() {
     const app = express();
-    
-    const userRoutes = require('./routes/user');
-
+  
     client.connect().then((res) => { console.log("Connected to Database") }).catch(err => console.log(err))
  
     const server = new ApolloServer({ typeDefs: typeDefs, resolvers: resolvers})
@@ -29,8 +27,7 @@ async function StartServer() {
     await server.start()
 
 
-    // routes
-    app.use("/user", userRoutes);
+
     app.use("/graphql", expressMiddleware(server,{
         context: ({ req }) => {
             console.log('DB client'); 
