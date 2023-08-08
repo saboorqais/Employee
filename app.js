@@ -30,9 +30,9 @@ async function StartServer() {
     }))
 
 
-    const port = 3001
-    app.listen(port, () => {
-        console.log(`Server running on port ${port}`)
+   
+    app.listen(process.env.PORT_EXPRESS || 3000 , () => {
+        console.log(`Server running on port ${process.env.PORT_EXPRESS}`)
     })
 }
 
