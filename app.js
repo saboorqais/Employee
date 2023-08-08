@@ -9,9 +9,6 @@ const resolvers = require("./Utils/resolvers")
 const typeDefs = require("./models/employee")
 const client = require("./DatabaseClient/Client")
 
-
-
-
 async function StartServer() {
     const app = express();
   
@@ -25,8 +22,6 @@ async function StartServer() {
     app.use(cors()); 
 
     await server.start()
-
-
 
     app.use("/graphql", expressMiddleware(server,{
         context: ({ req }) => {
