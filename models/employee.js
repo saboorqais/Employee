@@ -12,7 +12,7 @@ const typeDefs = gql`
 
   type Query {
     getEmployee(id: ID!): Employee
-    listEmployees: [Employee]
+    getEmployees: [Employee]
   }
 
   input EmployeeInput {

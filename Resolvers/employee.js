@@ -3,7 +3,7 @@ async function getEmployee(parent, args, context) {
     const result = await context.client.query('SELECT * FROM employee WHERE id = $1', [id]);
     return result.rows[0];
 }
-async function listEmployees(parent, args, context) {
+async function getEmployees(parent, args, context) {
     // Use the PostgreSQL query here to fetch the list of employees
     const result = await context.client.query('SELECT * FROM employee');
     return result.rows;
@@ -43,6 +43,6 @@ module.exports = {
     updateEmployee,
     deleteEmployee
     , createEmployee
-    , listEmployees
+    , getEmployees 
     , getEmployee
 }

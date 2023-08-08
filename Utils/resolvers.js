@@ -1,6 +1,6 @@
 // resolvers.js
 const {
-  listEmployees,
+  getEmployees,
   getEmployee,
   createEmployee,
   updateEmployee,
@@ -10,7 +10,7 @@ deleteEmployee } = require("../Resolvers/employee");
 const resolvers = {
   Query: {
     getEmployee: getEmployee,
-    listEmployees: listEmployees
+    getEmployees: getEmployees
   },
   Mutation: {
     createEmployee: createEmployee,
