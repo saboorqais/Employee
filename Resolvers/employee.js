@@ -4,7 +4,6 @@ async function getEmployee(parent, args, context) {
     return result.rows[0];
 }
 async function listEmployees(parent, args, context) {
-
     // Use the PostgreSQL query here to fetch the list of employees
     const result = await context.client.query('SELECT * FROM employee');
     return result.rows;
@@ -13,7 +12,6 @@ async function listEmployees(parent, args, context) {
 async function createEmployee(parent, args, context) {
     const { input } = args;
     // Use the PostgreSQL query to insert a new employee
-
     const result = await context.client.query(
         'INSERT INTO employee (name, job, department, salary, hire_date) VALUES ($1, $2, $3, $4, $5) RETURNING *',
         [input.name, input.job, input.department, input.salary, input.hire_date]
